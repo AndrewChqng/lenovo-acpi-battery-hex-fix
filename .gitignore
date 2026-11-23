@@ -1,0 +1,12 @@
+acpi_work/
+work/
+verify/
+*.dat
+*.aml
+*.dsl
+*.hex
+*.cpio
+*.img
+__pycache__/
+*.pyc
+.pytest_cache/

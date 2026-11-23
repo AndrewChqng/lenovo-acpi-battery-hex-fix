@@ -1,0 +1,41 @@
+--- a/dsdt.dsl
++++ b/dsdt.dsl
+@@ -18,7 +18,7 @@
+  *     Compiler ID      "ACPI"
+  *     Compiler Version 0x00040000 (262144)
+  */
+-DefinitionBlock ("", "DSDT", 1, "LENOVO", "CB-01   ", 0x00000001)
++DefinitionBlock ("", "DSDT", 1, "LENOVO", "CB-01   ", 0x00000002)
+ {
+     /*
+      * iASL Warning: There were 13 external control methods found during
+@@ -9089,7 +9089,7 @@
+                     If (Local0)
+                     {
+                         BFWB = SMD0 /* \_SB_.PCI0.LPC0.EC0_.SMD0 */
+-                        CMMA = FB70 /* \_SB_.PCI0.LPC0.EC0_.GBMN.FB70 */
++                        CMMA = ToString (BFWB, 0x08)
+                     }
+                     Else
+                     {
+@@ -9136,7 +9136,7 @@
+                     If (Local0)
+                     {
+                         BFWB = SMD0 /* \_SB_.PCI0.LPC0.EC0_.SMD0 */
+-                        BRMN = FBB0 /* \_SB_.PCI0.LPC0.EC0_.GUBI.FBB0 */
++                        BRMN = ToString (BFWB, 0x0C)
+                     }
+                 }
+ 
+@@ -10078,11 +10078,6 @@
+ 
+                                 Local0 |= One
+                             }
+-                            Case (Zero)
+-                            {
+-                                Local0 |= Zero
+-                                Local0 |= 0x02
+-                            }
+                             Default
+                             {
+                                 Local0 |= Zero
